@@ -1,4 +1,4 @@
-import {util} from 'Util';
+import {util} from 'util';
 export default class MovingObject {
   constructor(options) {
     this.pos = options.pos;
