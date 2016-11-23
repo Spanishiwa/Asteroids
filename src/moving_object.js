@@ -1,3 +1,4 @@
+import {util} from 'Util';
 export default class MovingObject {
   constructor(options) {
     this.pos = options.pos;
@@ -22,6 +23,9 @@ export default class MovingObject {
   }
 
   isCollidedWith(otherMovingObject) {
-    
+    let distance = util.dist(this.pos, otherMovingObject.pos);
+    let radiusDist = this.radius + otherMovingObject.radius;
+
+    return radiusDist < distance;
   }
 }
