@@ -31,7 +31,7 @@ export default class Game {
     });
   }
 
-  moveObjects(object) {
+  moveObjects() {
     this.asteroids.forEach(asteroid => {
       asteroid.move();
     });
