@@ -8,6 +8,11 @@ let util = {
 
   norm: function(vec) {
     return util.dist([0,0], vec);
+  },
+
+  randVec: function(length) {
+    let deg = 2 * Math.PI * Math.random();
+    
   }
 };
 
