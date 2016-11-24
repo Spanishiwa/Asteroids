@@ -36,6 +36,7 @@ export default class Game {
       asteroid.move();
     });
   }
+
 }
 
 
