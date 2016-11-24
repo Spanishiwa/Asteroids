@@ -1,6 +1,5 @@
-import {Ship1, Ship2, Ship} from './ship.js';
-import Bullet from './bullet.js';
-
-export default class Asteroid {
+import { util } from './util.js';
+import { MovingObject } from './moving_object.js';
+export default class Asteroid extends MovingObject {
 
 }
