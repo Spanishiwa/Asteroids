@@ -1,4 +1,5 @@
 import { util } from './util.js';
+
 export default class MovingObject {
   constructor(options) {
     this.pos = options.pos;
