@@ -1,5 +1,6 @@
 import { Asteroid } from './asteroid.js';
 import { MovingObject } from './moving_object.js';
+import { util } from './util.js';
 
 let settings = {
   DIM_X: 1000,
@@ -37,6 +38,12 @@ export default class Game {
     });
   }
 
+  wrap(pos) {
+    let x = util.wrap(pos[0], settings.DIM_X);
+    let y = util.wrap(pos[1], settings.DIM_Y);
+
+    return [x, y];
+  }
 }
 
 
