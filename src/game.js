@@ -30,6 +30,12 @@ export default class Game {
       asteroid.draw(ctx);
     });
   }
+
+  moveObjects(object) {
+    this.asteroids.forEach(asteroid => {
+      asteroid.move();
+    });
+  }
 }
 
 
