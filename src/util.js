@@ -12,8 +12,14 @@ let util = {
 
   randVec: function(length) {
     let deg = 2 * Math.PI * Math.random();
-    
+    return util.scale([Math.sin(deg), Math.cos(deg)], length);
+  },
+
+  scale: function(vec, m) {
+    return [vec[0] * m, vec[1] * m];
   }
 };
+
+
 
 export { util };
