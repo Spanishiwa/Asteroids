@@ -44,6 +44,13 @@ export default class Game {
 
     return [x, y];
   }
+
+  randomPos() {
+    let x = settings.DIM_X * Math.random();
+    let y = settings.DIM_Y * Math.random();
+
+    return [x, y];
+  }
 }
 
 
