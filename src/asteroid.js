@@ -14,4 +14,5 @@ class Asteroid extends MovingObject {
 
 }
 
+
 export { Asteroid };
