@@ -66,6 +66,10 @@ export default class Game {
     this.moveObjects();
     this.checkCollisions();
   }
+
+  remove(asteroid) {
+    this.asteroids.splice(this.asteroids.indexOf(asteroid), 1);
+  }
 }
 
 
