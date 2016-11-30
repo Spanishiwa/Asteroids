@@ -8,7 +8,7 @@ export default class GameView {
 
   start() {
     setInterval( function() {
-      Game.moveObjects();
+      Game.step();
       Game.draw(GameView.ctx);
     }, 20);
   }

@@ -61,6 +61,11 @@ export default class Game {
       }
     }
   }
+
+  step() {
+    this.moveObjects();
+    this.checkCollisions();
+  }
 }
 
 
