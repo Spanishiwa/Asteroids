@@ -1,5 +1,5 @@
-import { util, defaults } from './util.js';
-import { MovingObject } from './moving_object.js';
+import {MovingObject} from './moving_object.js';
+import {util, defaults} from './util.js';
 
 
 class Asteroid extends MovingObject {
@@ -11,6 +11,7 @@ class Asteroid extends MovingObject {
     super(options);
 
   }
+
 }
 
 export { Asteroid };

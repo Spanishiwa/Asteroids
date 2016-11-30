@@ -36,4 +36,4 @@ let defaults = {
   speed: 5
 };
 
-export { util, defaults };
+export {util, defaults};
