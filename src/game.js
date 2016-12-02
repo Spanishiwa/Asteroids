@@ -1,31 +1,32 @@
-import {Asteroid} from './asteroid.js';
-import {MovingObject} from './moving_object.js';
+import Asteroid from './asteroid.js';
+import MovingObject from './moving_object.js';
 import {util} from './util.js';
-
-let settings = {
-  DIM_X: 1000,
-  DIM_Y: 600,
-  NUM_ASTEROIDS: 10,
-  BG_COLOR: "302e2e"
-};
 
 export default class Game {
   constructor() {
     this.asteroids = [];
-
-    this.addAsteroids();
+    this.addAsteroids(this.settings.NUM_ASTEROIDS);
   }
 
-  addAsteroids(NUM_ASTEROIDS) {
-    for(let i = 0; i < NUM_ASTEROIDS; i += 1) {
+  get settings() {
+    return {
+      DIM_X: 1000,
+      DIM_Y: 600,
+      NUM_ASTEROIDS: 10,
+      BG_COLOR: "302e2e"
+    };
+  }
+
+  addAsteroids(num) {
+    for(let i = 0; i < num; i += 1) {
       this.asteroids.push(new Asteroid ({game: this}) );
     }
   }
 
   draw(ctx) {
-    ctx.clearRect(0, 0, settings.DIM_X, settings.DIM_Y);
-    ctx.fillStyle = settings.BG_COLOR;
-    ctx.fillRect(0, 0, settings.DIM_X, settings.DIM_Y);
+    ctx.clearRect(0, 0, this.settings.DIM_X, this.settings.DIM_Y);
+    ctx.fillStyle = this.settings.BG_COLOR;
+    ctx.fillRect(0, 0, this.settings.DIM_X, this.settings.DIM_Y);
 
     this.asteroids.forEach(asteroid => {
       asteroid.draw(ctx);
@@ -39,15 +40,15 @@ export default class Game {
   }
 
   wrap(pos) {
-    let x = util.wrap(pos[0], settings.DIM_X);
-    let y = util.wrap(pos[1], settings.DIM_Y);
+    let x = util.wrap(pos[0], this.settings.DIM_X);
+    let y = util.wrap(pos[1], this.settings.DIM_Y);
 
     return [x, y];
   }
 
   randomPos() {
-    let x = settings.DIM_X * Math.random();
-    let y = settings.DIM_Y * Math.random();
+    let x = this.settings.DIM_X * Math.random();
+    let y = this.settings.DIM_Y * Math.random();
 
     return [x, y];
   }

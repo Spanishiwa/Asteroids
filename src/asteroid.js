@@ -1,18 +1,15 @@
-import {MovingObject} from './moving_object.js';
+import MovingObject from './moving_object.js';
 import {util, defaults} from './util.js';
 
 
-class Asteroid extends MovingObject {
+export default class Asteroid extends MovingObject {
   constructor(options = {}) {
     options.pos = options.pos || options.game.randomPos();
-    options.color = util.defaults.color;
-    options.radius = util.defaults.radius;
-    options.vel = options.vel || util.randVec(util.defaults.speed);
+    options.color = defaults.color;
+    options.radius = defaults.radius;
+    options.vel = options.vel || util.randVec(defaults.speed);
     super(options);
 
   }
 
 }
-
-
-export { Asteroid };

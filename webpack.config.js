@@ -2,12 +2,15 @@ var path = require('path');
 
 module.exports = {
   entry: {
-      'asteroids-game': "./src/entry.js",
+      'bundle': "./src/entry.js",
   },
   target: 'web',
   output: {
     path: path.join(__dirname, 'dist'),
   	filename: "[name].js"
+  },
+  resolve: {
+    extensions: ["", ".js", ".jsx"]
   },
   module: {
     loaders: [{

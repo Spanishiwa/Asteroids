@@ -7,9 +7,12 @@ export default class GameView {
   }
 
   start() {
-    setInterval( function() {
-      Game.step();
-      Game.draw(GameView.ctx);
-    }, 20);
+    window.requestAnimationFrame(this.loop.bind(this));
+  }
+
+  loop() {
+    this.game.step();
+    this.game.draw(this.ctx);
+    window.requestAnimationFrame(this.loop.bind(this));
   }
 }
