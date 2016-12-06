@@ -78,6 +78,13 @@ export default class Game {
 
     return (xIn && yIn);
   }
+
+  wrap(pos) {
+    let wrapX = util.wrap(pos[0], this.settings.DIM_X);
+    let wrapY = util.wrap(pos[1], this.settings.DIM_Y);
+
+    return [wrapX, wrapY];
+  }
 }
 
 
