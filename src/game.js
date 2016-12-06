@@ -71,6 +71,13 @@ export default class Game {
   remove(asteroid) {
     this.asteroids.splice(this.asteroids.indexOf(asteroid), 1);
   }
+
+  isOutOfBounds(pos) {
+    let xIn = pos[0] < 0 || pos[0] > this.settings.DIM_X;
+    let yIn = pos[1] < 0 || pos[1] > this.settings.DIM_Y;
+
+    return (xIn && yIn);
+  }
 }
 
 
