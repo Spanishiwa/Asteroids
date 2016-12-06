@@ -7,12 +7,17 @@ export default class GameView {
   }
 
   start() {
-    window.requestAnimationFrame(this.loop.bind(this));
+    this.lastTime = 0;
+    window.requestAnimationFrame(this.animate.bind(this));
   }
 
-  loop() {
-    this.game.step();
+  animate(time) {
+    const timeDelta = time - this.lastTime;
+
+    this.game.step(timeDelta);
     this.game.draw(this.ctx);
-    window.requestAnimationFrame(this.loop.bind(this));
+    this.lastTime = time;
+
+    window.requestAnimationFrame(this.animate.bind(this));
   }
 }

@@ -13,7 +13,7 @@ export default class Game {
       DIM_X: 1000,
       DIM_Y: 600,
       NUM_ASTEROIDS: 10,
-      BG_COLOR: "302e2e"
+      BG_COLOR: "#000000"
     };
   }
 
@@ -63,8 +63,8 @@ export default class Game {
     }
   }
 
-  step() {
-    this.moveObjects();
+  step(delta) {
+    this.moveObjects(delta);
     this.checkCollisions();
   }
 
