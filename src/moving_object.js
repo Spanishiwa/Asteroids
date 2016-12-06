@@ -9,6 +9,10 @@ export default class MovingObject {
     this.game = options.game;
   }
 
+  collideWith(otherObject) {
+
+  }
+
   draw(ctx) {
     ctx.fillStyle = this.color;
 
@@ -19,9 +23,20 @@ export default class MovingObject {
     ctx.fill();
   }
 
-  move() {
-    this.pos[0] += this.vel[0];
-    this.pos[1] += this.vel[1];
+  move(timeDelta) {
+    const velocityScale = timeDelta / NORMAL_FRAME_TIME_DELTA;
+    const offsetX = this.vel[0] * velocityScale;
+    const offsetY = this.vel[1] * velocityScale;
+
+    this.pos = [this.pos[0] + offsetX, this.pos[1] + offsetY];
+
+    if (this.game.isOutOfBounds(this.pos)) {
+      if (this.isWrappable) {
+        this.pos = this.game.wrap(this.pos);
+      } else {
+        this.remove();
+      }
+    }
   }
 
   isCollidedWith(otherMovingObject) {
@@ -31,4 +46,9 @@ export default class MovingObject {
     return radiusDist < distance;
   }
 
+  remove() {
+    this.game.remove(this);
+  }
 }
+
+const NORMAL_FRAME_TIME_DELTA = 1000 / 60;

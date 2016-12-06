@@ -31,9 +31,9 @@ let util = {
 };
 
 let defaults = {
-  color: "c0b6c6",
-  radius: 5,
-  speed: 5
+  color: "#505050",
+  radius: 25,
+  speed: 4
 };
 
 export {util, defaults};
