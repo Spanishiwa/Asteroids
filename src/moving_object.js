@@ -26,7 +26,7 @@ export default class MovingObject {
   }
 
   move(timeDelta) {
-    const velocityScale = timeDelta / NORMAL_FRAME_TIME_DELTA;
+    const velocityScale = timeDelta / 1000 / 60;
     const offsetX = this.vel[0] * velocityScale;
     const offsetY = this.vel[1] * velocityScale;
 
@@ -52,5 +52,3 @@ export default class MovingObject {
     this.game.remove(this);
   }
 }
-
-const NORMAL_FRAME_TIME_DELTA = 1000 / 60;
