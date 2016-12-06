@@ -7,6 +7,7 @@ export default class MovingObject {
     this.radius = options.radius;
     this.color = options.color;
     this.game = options.game;
+    this.isWrappable = true;
   }
 
   collideWith(otherObject) {
