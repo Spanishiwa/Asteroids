@@ -8,7 +8,7 @@ export default class GameView {
 
   start() {
     this.lastTime = 0;
-    window.requestAnimationFrame(this.animate.bind(this));
+    requestAnimationFrame(this.animate.bind(this));
   }
 
   animate(time) {
@@ -18,6 +18,6 @@ export default class GameView {
     this.game.draw(this.ctx);
     this.lastTime = time;
 
-    window.requestAnimationFrame(this.animate.bind(this));
+    requestAnimationFrame(this.animate.bind(this));
   }
 }
