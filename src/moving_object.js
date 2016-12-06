@@ -1,4 +1,5 @@
 import {util} from './util.js';
+import Game from './game';
 
 export default class MovingObject {
   constructor(options) {
