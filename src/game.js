@@ -5,7 +5,8 @@ import {util} from './util.js';
 export default class Game {
   constructor() {
     this.asteroids = [];
-    this.addAsteroids(this.settings.NUM_ASTEROIDS);
+
+    this.addAsteroids();
   }
 
   get settings() {
@@ -17,7 +18,8 @@ export default class Game {
     };
   }
 
-  addAsteroids(num) {
+  addAsteroids() {
+    const num = this.settings.NUM_ASTEROIDS;
     for(let i = 0; i < num; i += 1) {
       this.asteroids.push(new Asteroid ({game: this}) );
     }
@@ -28,7 +30,7 @@ export default class Game {
     ctx.fillStyle = this.settings.BG_COLOR;
     ctx.fillRect(0, 0, this.settings.DIM_X, this.settings.DIM_Y);
 
-    this.asteroids.forEach(asteroid => {
+    this.asteroids.forEach( (asteroid) => {
       asteroid.draw(ctx);
     });
   }

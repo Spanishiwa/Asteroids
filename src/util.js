@@ -11,7 +11,7 @@ let util = {
   },
 
   randVec(length) {
-    let deg = 2 * Math.PI * Math.random();
+    const deg = 2 * Math.PI * Math.random();
     return util.scale([Math.sin(deg), Math.cos(deg)], length);
   },
 
