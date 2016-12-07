@@ -57,7 +57,7 @@ export default class Game {
 
   checkCollisions() {
     for (let i = 0; i < this.asteroids.length; i += 1) {
-      for (let j = (i+1); j < this.asteroids.length; j += 1) {
+      for (let j = 0; j < this.asteroids.length; j += 1) {
         if (this.asteroids[i].isCollidedWith(this.asteroids[j])) {
           alert("COLLISION");
         }

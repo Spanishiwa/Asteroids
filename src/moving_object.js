@@ -42,10 +42,10 @@ export default class MovingObject {
   }
 
   isCollidedWith(otherMovingObject) {
-    let distance = util.dist(this.pos, otherMovingObject.pos);
+    let centerDist = util.dist(this.pos, otherMovingObject.pos);
     let radiusDist = this.radius + otherMovingObject.radius;
 
-    return radiusDist < distance;
+    return radiusDist < centerDist;
   }
 
   remove() {
