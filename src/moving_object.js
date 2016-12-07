@@ -26,9 +26,9 @@ export default class MovingObject {
   }
 
   move(timeDelta) {
-    const velocityScale = timeDelta / 1000 / 60;
-    const offsetX = this.vel[0] * velocityScale;
-    const offsetY = this.vel[1] * velocityScale;
+    const velocityScale = timeDelta / 1000 / 60,
+    offsetX = this.vel[0] * velocityScale,
+    offsetY = this.vel[1] * velocityScale;
 
     this.pos = [this.pos[0] + offsetX, this.pos[1] + offsetY];
 
