@@ -35,9 +35,9 @@ export default class Game {
     });
   }
 
-  moveObjects() {
+  moveObjects(delta) {
     this.asteroids.forEach(asteroid => {
-      asteroid.move();
+      asteroid.move(delta);
     });
   }
 
