@@ -1,5 +1,5 @@
-import Game from './game.js';
-import GameView from './game_view.js';
+import Game from './game';
+import GameView from './game_view';
 
 document.addEventListener("DOMContentLoaded", function() {
   const canvas = document.getElementsByTagName("canvas")[0];

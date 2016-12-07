@@ -1,6 +1,6 @@
-import Asteroid from './asteroid.js';
-import MovingObject from './moving_object.js';
-import {util} from './util.js';
+import Asteroid from './asteroid';
+import MovingObject from './moving_object';
+import {util} from './util';
 
 export default class Game {
   constructor() {

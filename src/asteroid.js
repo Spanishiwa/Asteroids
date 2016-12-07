@@ -1,5 +1,5 @@
-import MovingObject from './moving_object.js';
-import {util, defaults} from './util.js';
+import MovingObject from './moving_object';
+import {util, defaults} from './util';
 
 
 export default class Asteroid extends MovingObject {
