@@ -75,10 +75,10 @@ export default class Game {
   }
 
   isOutOfBounds(pos) {
-    let xIn = pos[0] < 0 || pos[0] > this.settings.DIM_X;
-    let yIn = pos[1] < 0 || pos[1] > this.settings.DIM_Y;
+    let xOut = pos[0] < 0 || pos[0] > this.settings.DIM_X;
+    let yOut = pos[1] < 0 || pos[1] > this.settings.DIM_Y;
 
-    return (xIn && yIn);
+    return (xOut || yOut);
   }
 
   wrap(pos) {
