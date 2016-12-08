@@ -57,10 +57,13 @@ export default class Game {
 
   checkCollisions() {
     for (let i = 0; i < this.asteroids.length; i += 1) {
-      for (let j = 0; j < this.asteroids.length; j += 1) {
-        if (this.asteroids[i].isCollidedWith(this.asteroids[j])) {
-          console.log('COLLISION');
-          this.asteroids[i].collideWith(this.asteroids[j]);
+      for (let j = this.asteroids.length; j > i; j -= 1) {
+          const asteroid1 = this.asteroids[i];
+          const asteroid2 = this.asteroids[j];
+
+          if (asteroid1.isCollidedWith(asteroid2)) {
+            asteroid1.collideWith(asteroid2);
+            return;
         }
       }
     }
