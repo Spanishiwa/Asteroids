@@ -16,7 +16,7 @@ export default class GameView {
 
     this.game.step(timeDelta);
     this.game.draw(this.ctx);
-    this.lastTime = time;
+    this.lastTime = 0;
 
     requestAnimationFrame(this.animate.bind(this));
   }
