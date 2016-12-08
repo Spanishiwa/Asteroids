@@ -13,6 +13,7 @@ export default class Asteroid extends MovingObject {
   }
 
   collideWith(otherObject) {
-
+    this.remove();
+    otherObject.remove();
   }
 }

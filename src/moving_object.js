@@ -36,7 +36,7 @@ export default class MovingObject {
       if (this.isWrappable) {
         this.pos = this.game.wrap(this.pos);
       } else {
-        this.remove();
+        this.remove(this);
       }
     }
   }
@@ -48,7 +48,7 @@ export default class MovingObject {
     return radiusDist < centerDist;
   }
 
-  remove() {
-    this.game.remove(this);
+  remove(asteroid) {
+    this.game.remove(asteroid);
   }
 }
