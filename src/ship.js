@@ -1,14 +1,10 @@
-class Ship {
+import MovingObject from './moving_object';
 
-}
-
- class Ship1 {
-
-
- }
-
-  class Ship2 {
-
+export default class Ship {
+  constructor(options) {
+    options.radius = 15;
+    options.vel = options.vel || [0,0];
+    options.color = "#800000";
+    options.pos = options.pos || options.game.randomPos();
   }
-
-  export {Ship, Ship1, Ship2};
+}
