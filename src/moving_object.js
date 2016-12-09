@@ -48,7 +48,7 @@ export default class MovingObject {
     return radiusDist > centerDist;
   }
 
-  remove(asteroid) {
-    this.game.remove(asteroid);
+  remove() {
+    this.game.remove(this);
   }
 }
