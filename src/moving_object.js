@@ -45,7 +45,7 @@ export default class MovingObject {
     let centerDist = util.dist(this.pos, otherMovingObject.pos);
     let radiusDist = this.radius + otherMovingObject.radius;
 
-    return radiusDist < centerDist;
+    return radiusDist > centerDist;
   }
 
   remove(asteroid) {
