@@ -13,4 +13,9 @@ export default class Ship extends MovingObject{
     this.pos = this.game.randomPos();
     this.vel = [0,0];
   }
+
+  power(impulse) {
+    this.vel[0] += impulse[0];
+    this.vel[1] += impulse[1];
+  }
 }
