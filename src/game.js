@@ -1,11 +1,12 @@
 import Asteroid from './asteroid';
 import MovingObject from './moving_object';
 import {util} from './util';
+import Ship from './ship.js';
 
 export default class Game {
   constructor() {
     this.asteroids = [];
-
+    this.ship = new Ship({game: this});
     this.addAsteroids();
   }
 
@@ -16,6 +17,10 @@ export default class Game {
       NUM_ASTEROIDS: 10,
       BG_COLOR: "#000000"
     };
+  }
+
+  allObjects() {
+    return [].concat(this.asteroids, this.ship);
   }
 
   addAsteroids() {
@@ -30,14 +35,14 @@ export default class Game {
     ctx.fillStyle = this.settings.BG_COLOR;
     ctx.fillRect(0, 0, this.settings.DIM_X, this.settings.DIM_Y);
 
-    this.asteroids.forEach( (asteroid) => {
-      asteroid.draw(ctx);
+    this.allObjects().forEach( (obj) => {
+      obj.draw(ctx);
     });
   }
 
   moveObjects(delta) {
-    this.asteroids.forEach(asteroid => {
-      asteroid.move(delta);
+    this.allObjects().forEach(obj => {
+      obj.move(delta);
     });
   }
 
@@ -56,13 +61,13 @@ export default class Game {
   }
 
   checkCollisions() {
-    for (let i = 0; i < this.asteroids.length; i += 1) {
-      for (let j = 0; j < this.asteroids.length; j += 1) {
-          const asteroid1 = this.asteroids[i];
-          const asteroid2 = this.asteroids[j];
+    for (let i = 0; i < this.allObjects().length; i += 1) {
+      for (let j = 0; j < this.allObjects().length; j += 1) {
+          const obj1 = this.allObjects()[i];
+          const obj2 = this.allObjects()[j];
 
-          if (i !== j && asteroid1.isCollidedWith(asteroid2)) {
-            asteroid1.collideWith(asteroid2);
+          if (i !== j && obj1.isCollidedWith(obj2)) {
+            obj1.collideWith(obj2);
             return;
         }
       }

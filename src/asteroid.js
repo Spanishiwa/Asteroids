@@ -1,6 +1,6 @@
 import MovingObject from './moving_object';
 import {util, defaults} from './util';
-
+import Ship from './ship';
 
 export default class Asteroid extends MovingObject {
   constructor(options = {}) {
@@ -13,8 +13,14 @@ export default class Asteroid extends MovingObject {
   }
 
   collideWith(otherObject) {
-    this.remove();
-    otherObject.remove();
-    return true;
+    if (otherObject instanceof Ship) {
+      otherObject.relocate();
+      return true;
+    }
+    else {
+      this.remove();
+      otherObject.remove();
+      return true;
+    }
   }
 }
