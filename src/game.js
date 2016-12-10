@@ -67,8 +67,8 @@ export default class Game {
           const obj2 = this.allObjects()[j];
 
           if (i !== j && obj1.isCollidedWith(obj2)) {
-            obj1.collideWith(obj2);
-            return;
+            const collision = obj1.collideWith(obj2);
+            if (collision) return;
         }
       }
     }
