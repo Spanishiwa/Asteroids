@@ -48,7 +48,7 @@ export default class MovingObject {
     return radiusDist > centerDist;
   }
 
-  remove() {
+  remove(obj) {
     this.game.remove(this);
   }
 }

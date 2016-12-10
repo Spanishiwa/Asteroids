@@ -17,6 +17,9 @@ export default class Asteroid extends MovingObject {
       otherObject.relocate();
       return true;
     }
+    else if (otherObject instanceof Asteroid) {
+      return true;
+    }
     else {
       this.remove();
       otherObject.remove();
