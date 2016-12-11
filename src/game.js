@@ -2,6 +2,7 @@ import Asteroid from './asteroid';
 import MovingObject from './moving_object';
 import {util} from './util';
 import Ship from './ship.js';
+import Bullet from './bullet';
 
 export default class Game {
   constructor() {
@@ -21,7 +22,21 @@ export default class Game {
   }
 
   allObjects() {
-    return [].concat(this.asteroids, this.ship);
+    return [].concat(this.asteroids, this.ship, this.bullets);
+  }
+
+  add(obj) {
+    if (obj instanceof Bullet) {
+      this.bullets.push(obj);
+      return;
+    }
+    else if (obj instanceof Asteroid) {
+      this.asteroids.push(obj);
+      return;
+    }
+    else {
+      alert('error unknown obj added to game');
+    }
   }
 
   addAsteroids() {
@@ -80,8 +95,15 @@ export default class Game {
     this.checkCollisions();
   }
 
-  remove(asteroid) {
-    this.asteroids.splice(this.asteroids.indexOf(asteroid), 1);
+  remove(obj) {
+    if (obj instanceof Asteroid) {
+      this.asteroids.splice(this.asteroids.indexOf(obj), 1);
+      return;
+    }
+    else if (obj instanceof Bullet) {
+      this.bullets.splice(this.bullets.indexOf(obj), 1);
+      return;
+    }
   }
 
   isOutOfBounds(pos) {

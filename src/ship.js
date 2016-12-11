@@ -22,5 +22,8 @@ export default class Ship extends MovingObject{
 
   fireBullet() {
     const bullet = new Bullet({vel: this.vel});
+
+    this.game.add(bullet);
+    return;
   }
 }
