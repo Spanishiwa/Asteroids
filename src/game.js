@@ -7,6 +7,7 @@ export default class Game {
   constructor() {
     this.asteroids = [];
     this.ship = new Ship({game: this});
+    this.bullets = [];
     this.addAsteroids();
   }
 

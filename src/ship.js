@@ -1,4 +1,5 @@
 import MovingObject from './moving_object';
+import Bullet from './bullet';
 
 export default class Ship extends MovingObject{
   constructor(options) {
@@ -17,5 +18,9 @@ export default class Ship extends MovingObject{
   power(impulse) {
     this.vel[0] += impulse[0];
     this.vel[1] += impulse[1];
+  }
+
+  fireBullet() {
+    const bullet = new Bullet({vel: this.vel});
   }
 }

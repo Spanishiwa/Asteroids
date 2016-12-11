@@ -11,6 +11,9 @@ export default class GameView {
     let inputDir = event.keyCode;
 
     switch (inputDir) {
+      case (32):
+        this.game.ship.fireBullet();
+        break;
       case (37):
         this.game.ship.power(KEYPRESS_COORDS.left);
         break;
