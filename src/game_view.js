@@ -15,13 +15,13 @@ export default class GameView {
         this.game.ship.power(KEYPRESS_COORDS.left);
         break;
       case (38):
-        this.game.ship.power(KEYPRESS_COORDS.up);
+        this.game.ship.power(KEYPRESS_COORDS.down);
         break;
       case (39):
         this.game.ship.power(KEYPRESS_COORDS.right);
         break;
       case (40):
-        this.game.ship.power(KEYPRESS_COORDS.down);
+        this.game.ship.power(KEYPRESS_COORDS.up);
         break;
       default:
         break;
