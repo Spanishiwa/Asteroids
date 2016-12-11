@@ -6,6 +6,10 @@ export default class GameView {
     this.game = game;
   }
 
+  bindKeyHandlers(event) {
+
+  }
+
   start() {
     this.lastTime = 0;
     requestAnimationFrame(this.animate.bind(this));
