@@ -1,20 +1,31 @@
 import Game from './game';
-
 export default class GameView {
   constructor(game, ctx) {
     this.ctx = ctx;
     this.game = game;
-    this.ship = this.game.ship;
+
+    document.addEventListener("keydown", this.handleKeyEvent.bind(this));
   }
 
-  bindKeyHandlers() {
-    const ship = this.ship;
+  handleKeyEvent(event) {
+    let inputDir = event.keyCode;
 
-    Object.keys(KEYPRESS_COORDS).forEach( (dir) => {
-      const impulse = KEYPRESS_COORDS.dir;
-
-      key(k, () => {ship.power(impulse); });
-    });
+    switch (inputDir) {
+      case (37):
+        this.game.ship.power(KEYPRESS_COORDS.left);
+        break;
+      case (38):
+        this.game.ship.power(KEYPRESS_COORDS.up);
+        break;
+      case (39):
+        this.game.ship.power(KEYPRESS_COORDS.right);
+        break;
+      case (40):
+        this.game.ship.power(KEYPRESS_COORDS.down);
+        break;
+      default:
+        break;
+    }
   }
 
   start() {
