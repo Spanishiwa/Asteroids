@@ -10,8 +10,10 @@ document.addEventListener("DOMContentLoaded", function() {
   const ctx = canvas.getContext("2d");
   game.shipImg = new Image();
   game.asteroidImg = new Image();
+  game.bulletImg = new Image();
 
   game.shipImg.src = './dist/spaceship.png';
   game.asteroidImg.src = './dist/asteroid.jpg';
+  game.bulletImg.src = './dist/bullet.jpg';
   new GameView(game, ctx).start();
 });

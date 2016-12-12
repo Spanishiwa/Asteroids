@@ -6,4 +6,10 @@ export default class Bullet extends MovingObject {
     super(options);
     this.isWrappable = false;
   }
+
+  draw(ctx) {
+    ctx.drawImage(
+      this.game.bulletImg, this.pos[0], this.pos[1], 25, 25
+    );
+  }
 }
