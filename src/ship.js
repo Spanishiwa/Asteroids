@@ -21,6 +21,13 @@ export default class Ship extends MovingObject{
     this.vel[1] += impulse[1];
   }
 
+  draw(ctx) {
+    ctx.drawImage(
+      this.game.img, this.game.ship.pos[0],
+      this.game.ship.pos[1], 20, 20
+    );
+  }
+
   fireBullet() {
     const norm = util.norm(this.vel);
     const relVel = util.scale(util.dir(this.vel), 15);

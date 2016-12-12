@@ -56,6 +56,7 @@ export default class Game {
     });
   }
 
+
   moveObjects(delta) {
     this.allObjects().forEach(obj => {
       obj.move(delta);
