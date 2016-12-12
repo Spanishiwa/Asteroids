@@ -1,4 +1,9 @@
 let util = {
+  dir(vec) {
+    const norm = util.norm(vec);
+    return util.scale(vec, 1 / norm);
+  },
+
   dist(pos1, pos2) {
     const [x1, y1] = [pos1[0], pos1[1]];
     const [x2, y2] = [pos2[0], pos2[1]];
