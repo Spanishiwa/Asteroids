@@ -12,6 +12,12 @@ export default class Asteroid extends MovingObject {
 
   }
 
+  draw(ctx) {
+    ctx.drawImage(
+      this.game.asteroidImg, this.pos[0], this.pos[1], 65, 65
+    );
+  }
+
   collideWith(otherObject) {
     if (otherObject instanceof Ship) {
       otherObject.relocate();
