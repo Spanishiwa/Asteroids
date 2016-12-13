@@ -570,7 +570,7 @@
 	  function Bullet(options) {
 	    _classCallCheck(this, Bullet);
 	
-	    options.radius = options.radius || 2;
+	    options.radius = options.radius || 5;
 	
 	    var _this = _possibleConstructorReturn(this, (Bullet.__proto__ || Object.getPrototypeOf(Bullet)).call(this, options));
 	
