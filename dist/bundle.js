@@ -67,8 +67,8 @@
 	  game.asteroidImg = new Image();
 	  game.bulletImg = new Image();
 	
-	  game.shipImg.src = './dist/spaceship.jpeg';
-	  game.asteroidImg.src = './dist/asteroid.jpg';
+	  game.shipImg.src = './dist/spaceship.png';
+	  game.asteroidImg.src = './dist/asteroid.png';
 	  game.bulletImg.src = './dist/bullet.jpeg';
 	  new _game_view2.default(game, ctx).start();
 	});
@@ -295,7 +295,7 @@
 	  _createClass(Asteroid, [{
 	    key: 'draw',
 	    value: function draw(ctx) {
-	      ctx.drawImage(this.game.asteroidImg, this.pos[0], this.pos[1], 65, 65);
+	      ctx.drawImage(this.game.asteroidImg, this.pos[0], this.pos[1], 55, 40);
 	    }
 	  }, {
 	    key: 'collideWith',
@@ -514,7 +514,7 @@
 	  }, {
 	    key: 'draw',
 	    value: function draw(ctx) {
-	      ctx.drawImage(this.game.shipImg, this.game.ship.pos[0], this.game.ship.pos[1], 20, 20);
+	      ctx.drawImage(this.game.shipImg, this.game.ship.pos[0], this.game.ship.pos[1], 35, 35);
 	    }
 	  }, {
 	    key: 'fireBullet',
@@ -570,7 +570,7 @@
 	  function Bullet(options) {
 	    _classCallCheck(this, Bullet);
 	
-	    options.radius = options.radius || 10;
+	    options.radius = options.radius || 5;
 	
 	    var _this = _possibleConstructorReturn(this, (Bullet.__proto__ || Object.getPrototypeOf(Bullet)).call(this, options));
 	
@@ -581,7 +581,7 @@
 	  _createClass(Bullet, [{
 	    key: 'draw',
 	    value: function draw(ctx) {
-	      ctx.drawImage(this.game.bulletImg, this.pos[0], this.pos[1], 25, 25);
+	      ctx.drawImage(this.game.bulletImg, this.pos[0], this.pos[1], 15, 15);
 	    }
 	  }]);
 	

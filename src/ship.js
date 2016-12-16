@@ -24,7 +24,7 @@ export default class Ship extends MovingObject{
   draw(ctx) {
     ctx.drawImage(
       this.game.shipImg, this.game.ship.pos[0],
-      this.game.ship.pos[1], 20, 20
+      this.game.ship.pos[1], 35, 35
     );
   }
 

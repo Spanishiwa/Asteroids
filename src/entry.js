@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", function() {
   game.asteroidImg = new Image();
   game.bulletImg = new Image();
 
-  game.shipImg.src = './dist/spaceship.jpeg';
-  game.asteroidImg.src = './dist/asteroid.jpg';
+  game.shipImg.src = './dist/spaceship.png';
+  game.asteroidImg.src = './dist/asteroid.png';
   game.bulletImg.src = './dist/bullet.jpeg';
   new GameView(game, ctx).start();
 });
