@@ -27,7 +27,7 @@ export default class GameView {
         this.game.ship.power(KEYPRESS_COORDS.up);
         break;
       default:
-        break;
+        return;
     }
   }
 
