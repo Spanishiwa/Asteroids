@@ -11,9 +11,12 @@ document.addEventListener("DOMContentLoaded", function() {
   game.shipImg = new Image();
   game.asteroidImg = new Image();
   game.bulletImg = new Image();
+  game.backgroundImg = new Image();
 
   game.shipImg.src = './dist/spaceship.png';
   game.asteroidImg.src = './dist/asteroid.png';
   game.bulletImg.src = './dist/bullet.jpeg';
+  game.backgroundImg.src = './dist/space.jpg';
+
   new GameView(game, ctx).start();
 });

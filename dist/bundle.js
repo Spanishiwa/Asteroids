@@ -66,10 +66,13 @@
 	  game.shipImg = new Image();
 	  game.asteroidImg = new Image();
 	  game.bulletImg = new Image();
+	  game.backgroundImg = new Image();
 	
 	  game.shipImg.src = './dist/spaceship.png';
 	  game.asteroidImg.src = './dist/asteroid.png';
 	  game.bulletImg.src = './dist/bullet.jpeg';
+	  game.backgroundImg.src = './dist/space.jpg';
+	
 	  new _game_view2.default(game, ctx).start();
 	});
 
@@ -146,9 +149,10 @@
 	  }, {
 	    key: 'draw',
 	    value: function draw(ctx) {
-	      ctx.clearRect(0, 0, this.settings.DIM_X, this.settings.DIM_Y);
-	      ctx.fillStyle = this.settings.BG_COLOR;
-	      ctx.fillRect(0, 0, this.settings.DIM_X, this.settings.DIM_Y);
+	      // ctx.clearRect(0, 0, this.settings.DIM_X, this.settings.DIM_Y);
+	      // ctx.fillStyle = this.settings.BG_COLOR;
+	      // ctx.fillRect(0, 0, this.settings.DIM_X, this.settings.DIM_Y);
+	      ctx.drawImage(this.backgroundImg, 0, 0);
 	
 	      this.allObjects().forEach(function (obj) {
 	        obj.draw(ctx);
@@ -642,7 +646,7 @@
 	          this.game.ship.power(KEYPRESS_COORDS.up);
 	          break;
 	        default:
-	          break;
+	          return;
 	      }
 	    }
 	  }, {

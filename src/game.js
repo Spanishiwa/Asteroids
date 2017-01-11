@@ -47,9 +47,10 @@ export default class Game {
   }
 
   draw(ctx) {
-    ctx.clearRect(0, 0, this.settings.DIM_X, this.settings.DIM_Y);
-    ctx.fillStyle = this.settings.BG_COLOR;
-    ctx.fillRect(0, 0, this.settings.DIM_X, this.settings.DIM_Y);
+    // ctx.clearRect(0, 0, this.settings.DIM_X, this.settings.DIM_Y);
+    // ctx.fillStyle = this.settings.BG_COLOR;
+    // ctx.fillRect(0, 0, this.settings.DIM_X, this.settings.DIM_Y);
+    ctx.drawImage(this.backgroundImg,0,0);
 
     this.allObjects().forEach( (obj) => {
       obj.draw(ctx);
