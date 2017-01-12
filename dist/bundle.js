@@ -110,6 +110,10 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
+	var collisionSound1 = new Audio('dist/collision.wav');
+	var collisionSound2 = new Audio('dist/collision.wav');
+	var collisionSound3 = new Audio('dist/collision.wav');
+	
 	var Game = function () {
 	  function Game() {
 	    _classCallCheck(this, Game);
@@ -118,6 +122,8 @@
 	    this.ship = new _ship2.default({ game: this });
 	    this.bullets = [];
 	    this.addAsteroids();
+	    this.nextCollisionSound = 0;
+	    this.collisionSounds = [collisionSound1, collisionSound2, collisionSound3];
 	  }
 	
 	  _createClass(Game, [{
@@ -191,7 +197,11 @@
 	
 	          if (i !== j && obj1.isCollidedWith(obj2)) {
 	            var collision = obj1.collideWith(obj2);
-	            if (collision) return;
+	            if (collision) {
+	              this.collisionSounds[this.nextCollisionSound % 3].play();
+	              this.nextCollisionSound += 1;
+	              return;
+	            }
 	          }
 	        }
 	      }
@@ -490,6 +500,14 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	var thrustSound1 = new Audio('dist/thrust.wav');
+	var fireSound1 = new Audio('dist/fire.wav');
+	var fireSound2 = new Audio('dist/fire.wav');
+	var fireSound3 = new Audio('dist/fire.wav');
+	var fireSound4 = new Audio('dist/fire.wav');
+	var fireSound5 = new Audio('dist/fire.wav');
+	var fireSound6 = new Audio('dist/fire.wav');
+	
 	var Ship = function (_MovingObject) {
 	  _inherits(Ship, _MovingObject);
 	
@@ -500,7 +518,12 @@
 	    options.vel = options.vel || [0, 0];
 	    options.color = "#800000";
 	    options.pos = options.pos || options.game.randomPos();
-	    return _possibleConstructorReturn(this, (Ship.__proto__ || Object.getPrototypeOf(Ship)).call(this, options));
+	
+	    var _this = _possibleConstructorReturn(this, (Ship.__proto__ || Object.getPrototypeOf(Ship)).call(this, options));
+	
+	    _this.nextSound = 0;
+	    _this.fireSounds = [fireSound1, fireSound2, fireSound3, fireSound4, fireSound5, fireSound6];
+	    return _this;
 	  }
 	
 	  _createClass(Ship, [{
@@ -514,6 +537,7 @@
 	    value: function power(impulse) {
 	      this.vel[0] += impulse[0];
 	      this.vel[1] += impulse[1];
+	      thrustSound1.play();
 	    }
 	  }, {
 	    key: 'draw',
@@ -534,6 +558,8 @@
 	        game: this.game
 	      });
 	
+	      this.fireSounds[this.nextSound % 6].play();
+	      this.nextSound += 1;
 	      this.game.add(bullet);
 	      return;
 	    }

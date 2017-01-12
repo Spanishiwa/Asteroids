@@ -3,6 +3,10 @@ import MovingObject from './moving_object';
 import {util} from './util';
 import Ship from './ship.js';
 import Bullet from './bullet';
+const collisionSound1 = new Audio('dist/collision.wav');
+const collisionSound2 = new Audio('dist/collision.wav');
+const collisionSound3 = new Audio('dist/collision.wav');
+
 
 export default class Game {
   constructor() {
@@ -10,6 +14,8 @@ export default class Game {
     this.ship = new Ship({game: this});
     this.bullets = [];
     this.addAsteroids();
+    this.nextCollisionSound = 0;
+    this.collisionSounds = [collisionSound1, collisionSound2, collisionSound3];
   }
 
   get settings() {
@@ -86,7 +92,11 @@ export default class Game {
 
           if (i !== j && obj1.isCollidedWith(obj2)) {
             const collision = obj1.collideWith(obj2);
-            if (collision) return;
+            if (collision) {
+              this.collisionSounds[this.nextCollisionSound%3].play();
+              this.nextCollisionSound += 1;
+              return;
+            }
         }
       }
     }
