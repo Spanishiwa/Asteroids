@@ -73,7 +73,7 @@
 	  game.bulletImg.src = './dist/bullet.jpeg';
 	  game.backgroundImg.src = './dist/space.jpg';
 	
-	  new _game_view2.default(game, ctx).start();
+	  new _game_view2.default(game, ctx);
 	});
 
 /***/ },
@@ -113,6 +113,7 @@
 	var collisionSound1 = new Audio('dist/collision.wav');
 	var collisionSound2 = new Audio('dist/collision.wav');
 	var collisionSound3 = new Audio('dist/collision.wav');
+	var winningSound = new Audio('dist/winnerSound.wav');
 	
 	var Game = function () {
 	  function Game() {
@@ -217,6 +218,9 @@
 	    value: function remove(obj) {
 	      if (obj instanceof _asteroid2.default) {
 	        this.asteroids.splice(this.asteroids.indexOf(obj), 1);
+	        if (this.asteroids.length === 0) {
+	          winningSound.play();
+	        }
 	        return;
 	      } else if (obj instanceof _bullet2.default) {
 	        this.bullets.splice(this.bullets.indexOf(obj), 1);
@@ -624,7 +628,7 @@
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -640,18 +644,21 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
+	var gameMusic = new Audio('dist/AceCombat6.mp3');
+	
 	var GameView = function () {
 	  function GameView(game, ctx) {
 	    _classCallCheck(this, GameView);
 	
 	    this.ctx = ctx;
 	    this.game = game;
+	    this.gamePlaying = false;
 	
 	    document.addEventListener("keydown", this.handleKeyEvent.bind(this));
 	  }
 	
 	  _createClass(GameView, [{
-	    key: "handleKeyEvent",
+	    key: 'handleKeyEvent',
 	    value: function handleKeyEvent(event) {
 	      var inputDir = event.keyCode;
 	
@@ -671,18 +678,34 @@
 	        case 40:
 	          this.game.ship.power(KEYPRESS_COORDS.up);
 	          break;
+	        case 13:
+	          if (!this.gamePlaying) {
+	            this.start();
+	            break;
+	          } else {
+	            location.reload();
+	            break;
+	          }
+	        case 49:
+	          gameMusic.pause();
+	          break;
+	        case 50:
+	          gameMusic.play();
+	          break;
 	        default:
 	          return;
 	      }
 	    }
 	  }, {
-	    key: "start",
+	    key: 'start',
 	    value: function start() {
+	      gameMusic.play();
+	      this.gamePlaying = true;
 	      this.lastTime = 0;
 	      requestAnimationFrame(this.animate.bind(this));
 	    }
 	  }, {
-	    key: "animate",
+	    key: 'animate',
 	    value: function animate(time) {
 	      var timeDelta = time - this.lastTime;
 	

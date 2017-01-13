@@ -18,5 +18,5 @@ document.addEventListener("DOMContentLoaded", function() {
   game.bulletImg.src = './dist/bullet.jpeg';
   game.backgroundImg.src = './dist/space.jpg';
 
-  new GameView(game, ctx).start();
+  new GameView(game, ctx);
 });

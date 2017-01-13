@@ -6,7 +6,7 @@ import Bullet from './bullet';
 const collisionSound1 = new Audio('dist/collision.wav');
 const collisionSound2 = new Audio('dist/collision.wav');
 const collisionSound3 = new Audio('dist/collision.wav');
-
+const winningSound = new Audio('dist/winnerSound.wav');
 
 export default class Game {
   constructor() {
@@ -110,6 +110,9 @@ export default class Game {
   remove(obj) {
     if (obj instanceof Asteroid) {
       this.asteroids.splice(this.asteroids.indexOf(obj), 1);
+      if (this.asteroids.length === 0) {
+        winningSound.play();
+      }
       return;
     }
     else if (obj instanceof Bullet) {

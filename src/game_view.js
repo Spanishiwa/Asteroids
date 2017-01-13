@@ -1,8 +1,11 @@
 import Game from './game';
+const gameMusic = new Audio('dist/AceCombat6.mp3');
+
 export default class GameView {
   constructor(game, ctx) {
     this.ctx = ctx;
     this.game = game;
+    this.gamePlaying = false;
 
     document.addEventListener("keydown", this.handleKeyEvent.bind(this));
   }
@@ -26,12 +29,29 @@ export default class GameView {
       case (40):
         this.game.ship.power(KEYPRESS_COORDS.up);
         break;
+      case (13):
+        if (!this.gamePlaying) {
+          this.start();
+          break;
+        }
+        else {
+          location.reload();
+          break;
+        }
+      case (49):
+        gameMusic.pause();
+        break;
+      case (50):
+        gameMusic.play();
+        break;
       default:
         return;
     }
   }
 
   start() {
+    gameMusic.play();
+    this.gamePlaying = true;
     this.lastTime = 0;
     requestAnimationFrame(this.animate.bind(this));
   }
